@@ -34,6 +34,6 @@ class ChatController extends Controller
         MessageSent::dispatch($chatMessage);
         logger('Broadcast ke private-chat');
 
-        return redirect()->back();
+        return back();
     }
 }
