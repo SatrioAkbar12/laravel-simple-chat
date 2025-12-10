@@ -19,4 +19,12 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-
+window.Echo.connector.pusher.connection.bind('state_change', function(states) {
+    console.log("Reverb state:", states);
+});
+window.Echo.connector.pusher.connection.bind('connected', () => {
+    console.log("Connected to Reverb");
+});
+window.Echo.connector.pusher.connection.bind('error', (err) => {
+    console.log("Reverb Error:", err);
+});

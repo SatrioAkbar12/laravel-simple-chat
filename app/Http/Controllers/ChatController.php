@@ -31,7 +31,8 @@ class ChatController extends Controller
 
         $chatMessage = $request->user()->chatMessages()->create($validated);
 
-        MessageSent::broadcast($chatMessage);
+        MessageSent::dispatch($chatMessage);
+        logger('Broadcast ke private-chat');
 
         return redirect()->back();
     }
