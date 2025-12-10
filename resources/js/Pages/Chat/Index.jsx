@@ -25,7 +25,7 @@ export default function Index({ auth, chats }) {
     useEffect(() => {
         if (window.Echo) {
             // PASTIKAN INI PRIVATE, BUKAN CHANNEL
-            window.Echo.private('chat')
+            window.Echo.channel('chat')
                 .listen('MessageSent', (e) => {
                     console.log('New message received');
                     setMessages((prevMessages) => [...prevMessages, e]);
